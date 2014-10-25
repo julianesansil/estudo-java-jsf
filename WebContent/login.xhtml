@@ -3,43 +3,34 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
-
-<f:view contentType="text/html" />
-
-<h:head>
-	<title>Sistema de NFs</title>
-	<h:outputStylesheet library="css" name="grid.css" />
-	<h:outputStylesheet library="css" name="style.css" />
-</h:head>
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets" >
 
 <h:body>
-	<div id="blocoCabecalho">
-		<div>
-			<h:graphicImage library="imagens" name="logo-uber.png"
-				id="logoCompany" />
-		</div>
-	</div>
+	<ui:composition template="_template.xhtml">
 
-	<div id="blocoConteudo">
-		<div class="container">
-			<h2>Login no sistema</h2>
-			<h:form>
-				<h:panelGrid columns="2" styleClass="campos">
-					<h:outputLabel value="Login:" for="login" />
-					<h:inputText id="login" value="#{loginMB.usuario.login}" />
+		<ui:define name="conteudo">
+			<div id="blocoConteudo">
+				<div class="container">
+					<h2>Login no sistema</h2>
+					<h:form>
+						<h:panelGrid columns="2" styleClass="campos">
+							<h:outputLabel value="Login:" for="login" />
+							<h:inputText id="login" value="#{loginMB.usuario.login}" />
 
-					<h:outputLabel value="Senha:" for="senha" />
-					<h:inputSecret id="senha" value="#{loginMB.usuario.senha}" />
+							<h:outputLabel value="Senha:" for="senha" />
+							<h:inputSecret id="senha" value="#{loginMB.usuario.senha}" />
 
-					<br></br>
-					<h:commandButton value="Efetuar login"
-						action="#{loginMB.efetuarLogin}" />
-				</h:panelGrid>
-			</h:form>
-		</div>
-	</div>
-
+							<br></br>
+							<h:commandButton value="Efetuar login"
+								action="#{loginMB.efetuarLogin}" />
+						</h:panelGrid>
+					</h:form>
+				</div>
+			</div>
+		</ui:define>
+		
+	</ui:composition>
 </h:body>
 
 </html>

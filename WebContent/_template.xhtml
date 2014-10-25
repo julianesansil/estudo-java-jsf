@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<f:view contentType="text/html" />
+
+<h:head>
+	<title>Sistema de NFs</title>
+	<h:outputStylesheet library="css" name="grid.css" />
+	<h:outputStylesheet library="css" name="style.css" />
+</h:head>
+
+<h:body>
+	<div id="blocoCabecalho">
+		<div>
+			<h:graphicImage library="imagens" name="logo-uber.png"
+				id="logoCompany" />
+		</div>
+
+		<div id="usuarioLogado">
+			<h:outputText value="Logado como: #{loginMB.usuario.login}" rendered="#{loginMB.usuario.login != null}"/>
+		</div>
+	</div>
+
+	<!-- Código de conteúdo aqui -->
+	<div id="blocoConteudo">
+		<div class="container">
+			<ui:insert name="conteudo" />
+		</div>
+	</div>
+
+	<div id="blocoRodape">
+		<div class="container">
+			<p>Copyright 2011. Todos os direitos reservados.</p>
+		</div>
+	</div>
+</h:body>
+
+</html>

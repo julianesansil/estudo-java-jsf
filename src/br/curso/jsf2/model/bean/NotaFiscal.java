@@ -57,4 +57,14 @@ public class NotaFiscal {
 		this.itens = itens;
 	}
 
+	public void adicionarItem(Item item) {
+		itens.add(item);
+	}
+
+	@Override
+	public String toString() {
+		return "NotaFiscal [id=" + id + ", cnpj=" + cnpj + ", data=" + data
+				+ "]";
+	}
+
 }

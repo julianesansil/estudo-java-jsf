@@ -59,4 +59,7 @@ public class Item {
 		this.notaFiscal = notaFiscal;
 	}
 
+	public Double getTotal() {
+		return preco*quantidade;
+	}
 }
