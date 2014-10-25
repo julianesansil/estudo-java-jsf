@@ -56,7 +56,6 @@ public class NotaFiscalMB {
 		GenericDAO<NotaFiscal> notaFiscalDAO = new GenericDAO<NotaFiscal>(NotaFiscal.class);
 		GenericDAO<Item> itemDAO = new GenericDAO<Item>(Item.class);
 		
-		System.out.println(notaFiscal.toString());
 		notaFiscalDAO.cadastrar(this.notaFiscal);
 		for (Item item : notaFiscal.getItens()) {
 			itemDAO.cadastrar(item);

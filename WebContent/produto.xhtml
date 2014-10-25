@@ -3,97 +3,92 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 
 <f:view contentType="text/html" />
 
 <h:body>
-	<ui:composition template="_template.xhtml">
-	
-		<ui:define name="conteudo">
-			<div id="blocoConteudo">
-				<div>
-					<h2>Cadastro de produtos</h2>
-					<h:form>
-						<fieldset>
-							<legend>Dados do produto</legend>
-							
-							<h:panelGrid columns="2">
-								<h:outputLabel value="Id:" for="id"
-									rendered="#{produtoMB.produto.id != null}" />
-								<h:inputText id="id" value="#{produtoMB.produto.id}"
-									rendered="#{produtoMB.produto.id != null}" readonly="true" />
+	<div id="blocoConteudo">
+		<div>
+			<h2>Cadastro de produtos</h2>
+			<h:form>
+				<fieldset>
+					<legend>Dados do produto</legend>
 
-								<h:outputLabel value="Nome:" for="nome" />
-								<h:inputText id="nome" value="#{produtoMB.produto.nome}" />
+					<h:panelGrid columns="2">
+						<h:outputLabel value="Id:" for="id"
+							rendered="#{produtoMB.produto.id != null}" />
+						<h:inputText id="id" value="#{produtoMB.produto.id}"
+							rendered="#{produtoMB.produto.id != null}" readonly="true" />
 
-								<h:outputLabel value="Descrição:" for="descricao" />
-								<h:inputText id="descricao"
-									value="#{produtoMB.produto.descricao}" />
+						<h:outputLabel value="Nome:" for="nome" />
+						<h:inputText id="nome" value="#{produtoMB.produto.nome}" />
 
-								<h:outputLabel value="Preço:" for="preco" />
-								<h:inputText id="preco" value="#{produtoMB.produto.preco}" />
+						<h:outputLabel value="Descrição:" for="descricao" />
+						<h:inputText id="descricao" value="#{produtoMB.produto.descricao}" />
 
-								<br></br>
-								<h:commandButton value="Gravar" action="#{produtoMB.salvar}" />
-							</h:panelGrid>
-						</fieldset>
-					</h:form>
+						<h:outputLabel value="Preço:" for="preco" />
+						<h:inputText id="preco" value="#{produtoMB.produto.preco}" />
 
-					<h2>Listagem de produtos</h2>
-					<h:form id="tabela">
-						<h:dataTable value="#{produtoMB.produtos}" var="produto"
-							styleClass="dados" rowClasses="impar, par">
-							<h:column>
-								<f:facet name="header">
-									<h:outputText value="Nome" />
-								</f:facet>
+						<br></br>
+						<h:commandButton value="Gravar" action="#{produtoMB.salvar}" />
+
+					</h:panelGrid>
+				</fieldset>
+			</h:form>
+			
+			<h2>Listagem de produtos</h2>
+			<h:form id="tabela">
+				<h:dataTable value="#{produtoMB.produtos}" var="produto"
+					styleClass="dados" rowClasses="impar, par">
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Nome" />
+						</f:facet>
 				#{produto.nome}
 			</h:column>
 
-							<h:column>
-								<f:facet name="header">
-									<h:outputText value="Descrição" />
-								</f:facet>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Descrição" />
+						</f:facet>
 				#{produto.descricao}
 			</h:column>
 
-							<h:column>
-								<f:facet name="header">
-									<h:outputText value="Preço" />
-								</f:facet>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Preço" />
+						</f:facet>
 				#{produto.preco}
 			</h:column>
 
-							<h:column>
-								<f:facet name="header">
-									<f:facet name="header">
-										<h:outputText value="Ações" />
-									</f:facet>
+					<h:column>
+						<f:facet name="header">
+							<f:facet name="header">
+								<h:outputText value="Ações" />
+							</f:facet>
 
-									<h:commandLink value="Alterar">
-										<f:setPropertyActionListener target="#{produtoMB.produto}"
-											value="#{produto}" />
-									</h:commandLink>
+							<h:commandLink value="Alterar">
+								<f:setPropertyActionListener target="#{produtoMB.produto}"
+									value="#{produto}" />
+							</h:commandLink>
 
-								</f:facet>
-							</h:column>
+						</f:facet>
+					</h:column>
 
-							<h:column>
-								<h:commandLink action="#{produtoMB.excluir}" value="Excluir">
-									<f:ajax render="@form" />
-									<f:setPropertyActionListener target="#{produtoMB.produto}"
-										value="#{produto}" />
-								</h:commandLink>
-							</h:column>
-						</h:dataTable>
-					</h:form>
+					<h:column>
+						<h:commandLink action="#{produtoMB.excluir}" value="Excluir">
+							<f:ajax render="@form" />
+							<f:setPropertyActionListener target="#{produtoMB.produto}"
+								value="#{produto}" />
+						</h:commandLink>
+					</h:column>
+				</h:dataTable>
+			</h:form>
 
-				</div>
-			</div>
-		</ui:define>
-		
-	</ui:composition>
+		</div>
+	</div>
 </h:body>
 
 </html>
