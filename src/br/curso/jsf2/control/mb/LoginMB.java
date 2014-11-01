@@ -10,6 +10,7 @@ import br.curso.jsf2.model.dao.UsuarioDAO;
 @SessionScoped
 public class LoginMB {
 	private Usuario usuario = new Usuario();
+	private boolean usuarioLogado;
 
 	public Usuario getUsuario() {
 		return usuario;
@@ -19,16 +20,28 @@ public class LoginMB {
 		this.usuario = usuario;
 	}
 
+	public boolean isUsuarioLogado() {
+		return usuarioLogado;
+	}
+
+	public void setUsuarioLogado(boolean usuarioLogado) {
+		this.usuarioLogado = usuarioLogado;
+	}
+	
 	public String efetuarLogin() {
 		UsuarioDAO dao = new UsuarioDAO();
 		boolean loginValido = dao.existe(usuario);
 		
 		if (loginValido) {
+			usuarioLogado = true;
 			return "produto?faces-redirect=true";
 //			return "produto";
 		}
-		else return "login?faces-redirect=true";
-//			return "login";
+		else {
+			usuarioLogado = false;
+			return "login";
+//			return "login?faces-redirect=true";
+		}
 		
 	}
 }

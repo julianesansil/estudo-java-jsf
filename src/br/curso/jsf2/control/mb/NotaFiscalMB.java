@@ -8,7 +8,6 @@ import br.curso.jsf2.model.bean.NotaFiscal;
 import br.curso.jsf2.model.bean.Produto;
 import br.curso.jsf2.model.dao.GenericDAO;
 
-@ViewScoped
 @ManagedBean
 public class NotaFiscalMB {
 	private NotaFiscal notaFiscal = new NotaFiscal();
