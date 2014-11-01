@@ -15,7 +15,7 @@ public class UsuarioDAO {
 	public boolean existe(Usuario usuario) {
 		boolean resultado = false;
 		EntityManager em = JPAUtil.getEntityManager();
-		em.getTransaction().begin();
+//		em.getTransaction().begin();
 		
 		Query query = em.createQuery("FROM Usuario u "
 								   + "WHERE u.login = :pLogin "
@@ -25,7 +25,7 @@ public class UsuarioDAO {
 		
 		resultado = !query.getResultList().isEmpty();
 		
-		em.getTransaction().commit();
+//		em.getTransaction().commit();
 		em.close();
 		
 		return resultado;

@@ -22,7 +22,12 @@
 		</div>
 
 		<div id="usuarioLogado">
-			<h:outputText value="Logado como: #{loginMB.usuario.login}" rendered="#{loginMB.usuario.login != null}"/>
+			<h:outputText value="Logado como: #{loginMB.usuario.login}"
+				rendered="#{loginMB.usuario.login != null}" />
+
+			<h:form>
+				<h:commandLink value="Logout" action="#{loginMB.efetuarLogout}" rendered="#{loginMB.usuario.login != null}" />
+			</h:form>
 		</div>
 	</div>
 

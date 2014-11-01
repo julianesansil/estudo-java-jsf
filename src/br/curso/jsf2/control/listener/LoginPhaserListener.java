@@ -1,4 +1,4 @@
-package br.curso.jsf2.control.mb.listener;
+package br.curso.jsf2.control.listener;
 
 import javax.faces.application.NavigationHandler;
 import javax.faces.context.FacesContext;
@@ -33,10 +33,15 @@ public class LoginPhaserListener implements PhaseListener {
 		if (context.getViewRoot().getViewId().equals("/login.xhtml"))
 			return;
 		
+		//Carregando o objeto loginMB da sessão
 		LoginMB loginMB = context.getApplication().evaluateExpressionGet(context, "#{loginMB}", LoginMB.class);
 	
+		//Validação de autenticação
 		if (!loginMB.isUsuarioLogado()) {
+			//Carga do objeto de navegação
 			NavigationHandler handler = context.getApplication().getNavigationHandler();
+
+			//Redirecionamento para a tela de login
 			handler.handleNavigation(context, null, "login");
 			context.renderResponse();
 		}
